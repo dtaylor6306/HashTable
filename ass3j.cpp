@@ -5,38 +5,31 @@
 
 using namespace std;
 
+/* TODO 
+[x] Setup hash table
+    Input:
+[] Read input
+[] Remove punct
+[] change to lower
+[] add to hash
+    Sort:
+[] quicksort
+[] heapsort of top 150
+[] heapsort lower 150
+[] count sentences
+
+*/
+
 struct data{
     string word;
     int count = 1;
 };
 
 int main(){
-/*
-    list <data> items[10];
 
-    for(int i = 0; i < 10; i++){
-        data d;
-        d.count = 4;
-        d.word = "hello";
-        items[i].push_back(d);
-    }
 
-    data k;
-    k.count = 9;
-    k.word = "another one";
-    items[0].push_back(k);
-    
-for(int i = 0; i < 10; i++){
-    std::list<data>::iterator it;
-    for (it = items[i].begin(); it != items[i].end(); ++it){
-        std::cout << it->word << " " << it->count << endl;
-    }
-
-}
- */
-
-    Hash hashTable(10);
-
+    Hash hashTable(1000);
+    //tolower()
     hashTable.insert("abc");
     hashTable.insert("abc");
     hashTable.insert("abc");
@@ -46,6 +39,11 @@ for(int i = 0; i < 10; i++){
     hashTable.insert("def");
     hashTable.insert("efg");
     hashTable.insert("abbe");
+    hashTable.insert("zop");
+    hashTable.insert("this");
+    hashTable.insert("cat");
+    hashTable.insert("Cat");
+
     hashTable.printHash();
 
     return 0;

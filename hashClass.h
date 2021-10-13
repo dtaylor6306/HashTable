@@ -15,7 +15,7 @@ private:
 
     list <data> *table;
     int hash(string word){
-        int hashed = (int)word[0] % SIZE;
+        int hashed = (int)word[0] + (int)word[1] % SIZE;
 
         //cout << hashed << endl;
 
@@ -57,9 +57,17 @@ public:
 
                 //cout << "added new word" << endl;
             }
-    }
         }
-
+    }
+    void findValue(string word){
+        //word = word.to_lower();
+        int pos = hash(word);
+        list<data>::iterator it;
+        for (it = table[pos].begin(); it != table[pos].end(); ++it){
+              
+        }
+    }
+    
     void printHash(){
         for(int i = 0; i < SIZE; i++){
             list<data>::iterator it;
