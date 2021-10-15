@@ -5,7 +5,7 @@ using namespace std;
 class Hash{
 
 private:
-
+    int uniqueWordCount = 0;
     int SIZE;
 
     struct data{
@@ -38,6 +38,7 @@ public:
             data d;
             d.word = newWord;
             table[pos].push_back(d);
+            uniqueWordCount++;
            // cout << "added " << newWord << endl;
         }
         else{
@@ -54,20 +55,13 @@ public:
                 data d;
                 d.word = newWord;
                 table[pos].push_back(d);
+                uniqueWordCount++;
 
                 //cout << "added new word" << endl;
             }
         }
     }
-    void findValue(string word){
-        //word = word.to_lower();
-        int pos = hash(word);
-        list<data>::iterator it;
-        for (it = table[pos].begin(); it != table[pos].end(); ++it){
-              
-        }
-    }
-    
+
     void printHash(){
         for(int i = 0; i < SIZE; i++){
             list<data>::iterator it;
@@ -75,6 +69,19 @@ public:
                 cout << i << " " << it->word << " " << it->counter << endl;
             }
         }
+    }
+
+    bool findValue(string searchedWord){
+        int key = hash(searchedWord);
+        list<data>::iterator it;
+        for (it = table[key].begin(); it != table[key].end(); ++it){
+            if(it->word == searchedWord) return true;
+        }
+        return false;
+    }
+
+    int getWordCount(){
+        return uniqueWordCount;
     }
 };
 

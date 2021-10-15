@@ -43,8 +43,16 @@ int main(){
     hashTable.insert("this");
     hashTable.insert("cat");
     hashTable.insert("Cat");
+    bool istrue = hashTable.findValue("Cat");
 
     hashTable.printHash();
+    cout << istrue << endl;
+
+    istrue = hashTable.findValue("bbuubaiib");
+
+    cout << istrue << endl;
+
+    cout << hashTable.getWordCount() << endl;
 
     return 0;
 }
