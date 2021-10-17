@@ -15,7 +15,7 @@ private:
 
     list <data> *table;
     int hash(string word){
-        int hashed = (int)word[0] + (int)word[1] % SIZE;
+        int hashed = (int)word[0] % SIZE;
 
         //cout << hashed << endl;
 
@@ -29,9 +29,9 @@ public:
     }
 
     void insert(string newWord){
-        //[] hash to find pos
-        //[] if data in pos then counter ++
-        //[] else create new data and push back
+        //[x] hash to find pos
+        //[x] if data in pos then counter ++
+        //[x] else create new data and push back
         int pos = hash(newWord);
         
         if(table[pos].empty()){
@@ -84,4 +84,3 @@ public:
         return uniqueWordCount;
     }
 };
-

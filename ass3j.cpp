@@ -1,58 +1,52 @@
 #include <iostream>
-#include "hashClass.h"
+//#include "hashClass.h"
 #include <list>
 #include <string>
+#include "read.h"
+#include <fstream>
 
 using namespace std;
 
 /* TODO 
 [x] Setup hash table
     Input:
-[] Read input
-[] Remove punct
-[] change to lower
-[] add to hash
+[x] Read input
+[x] Remove punct
+[x] change to lower
+[x] add to hash
     Sort:
 [] quicksort
 [] heapsort of top 150
 [] heapsort lower 150
-[] count sentences
+[x] count sentences
 
 */
 
-struct data{
-    string word;
-    int count = 1;
-};
 
 int main(){
 
 
     Hash hashTable(1000);
-    //tolower()
-    hashTable.insert("abc");
-    hashTable.insert("abc");
-    hashTable.insert("abc");
-    hashTable.insert("bcd");
-    hashTable.insert("bcd");
-    hashTable.insert("cde");
-    hashTable.insert("def");
-    hashTable.insert("efg");
-    hashTable.insert("abbe");
-    hashTable.insert("zop");
-    hashTable.insert("this");
-    hashTable.insert("cat");
-    hashTable.insert("Cat");
-    bool istrue = hashTable.findValue("Cat");
+
+
+    ifstream in;
+    in.open("A Scandal In Bohemia.txt");
+    //in.open("test.txt");
+    
+    int sentenceCount;
+
+    sentenceCount = readInput(in, hashTable);
+    cout << sentenceCount << endl;
 
     hashTable.printHash();
-    cout << istrue << endl;
 
-    istrue = hashTable.findValue("bbuubaiib");
+   int wCount = hashTable.getWordCount();
 
-    cout << istrue << endl;
+   cout << wCount << endl;
 
-    cout << hashTable.getWordCount() << endl;
+
+
+    
 
     return 0;
 }
