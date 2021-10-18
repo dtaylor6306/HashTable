@@ -45,12 +45,15 @@ int main(){
    cout << wCount << endl;
 
    data arr[wCount];
+   //arr[wCount+1].counter = 0;
+   //arr[wCount+1].word = "END";
+
  
 
    hashTable.getTable(arr);
-   cout << arr[0].word << endl;
+   //cout << arr[0].word << endl;
    for(int i = 0; i < wCount; i++){
-      // cout << arr[i].word << endl;
+       cout << arr[i].word << endl;
 
    }
 
