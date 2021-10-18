@@ -38,11 +38,21 @@ int main(){
     sentenceCount = readInput(in, hashTable);
     cout << sentenceCount << endl;
 
-    hashTable.printHash();
+    //hashTable.printHash();
 
    int wCount = hashTable.getWordCount();
 
    cout << wCount << endl;
+
+   data arr[wCount];
+ 
+
+   hashTable.getTable(arr);
+   cout << arr[0].word << endl;
+   for(int i = 0; i < wCount; i++){
+      // cout << arr[i].word << endl;
+
+   }
 
 
 

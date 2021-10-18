@@ -86,8 +86,31 @@ public:
         return uniqueWordCount;
     }
 
-    data getTable(data arr[]){
-
+    void getTable(data (&arr)[]){
         
+        list<data>::iterator it;
+        int j = 0;
+        int count = 0;
+        for(int i = 0; i < uniqueWordCount; i++){
+            if(!table[i].empty()){
+                for(it = table[i].begin(); it != table[i].end(); ++it){
+                    arr[j].word = it->word;
+                    arr[j].counter = it->counter;
+                    cout << j  << ' ' << arr[j].word << endl;
+                    j++;
+                }
+            }
+
+        }
+        
+    /*
+        cout << count << ' ' << j << endl;
+        for(int i= 0; i < uniqueWordCount; i++){
+            cout << arr[i].word << endl;
+        }
+        
+       arr[97].word= table[97].begin()->word;
+       cout << arr[97].word << endl;
+       */
     }
 };
