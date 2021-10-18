@@ -2,16 +2,18 @@
 #include <list>
 #include <iostream>
 using namespace std;
+
+struct data{
+        int counter = 1;
+        string word;
+};
+
 class Hash{
 
 private:
     int uniqueWordCount = 0;
     int SIZE;
 
-    struct data{
-        int counter = 1;
-        string word;
-    };
 
     list <data> *table;
     int hash(string word){
@@ -82,5 +84,10 @@ public:
 
     int getWordCount(){
         return uniqueWordCount;
+    }
+
+    data getTable(data arr[]){
+
+        
     }
 };

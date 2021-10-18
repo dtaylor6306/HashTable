@@ -6,10 +6,6 @@
 
 using namespace std;
 
-struct data{
-    string word;
-    int count = 1;
-};
 
 int readInput(ifstream &in,Hash &hashTable){
     string line;
