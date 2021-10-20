@@ -1,12 +1,8 @@
 #include <string>
 #include <list>
 #include <iostream>
+#include "heap.h"
 using namespace std;
-
-struct data{
-        int counter = 1;
-        string word;
-};
 
 class Hash{
 
