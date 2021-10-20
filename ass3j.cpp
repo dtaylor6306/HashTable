@@ -26,39 +26,45 @@ using namespace std;
 
 int main(){
 
-
+    //creates hashtable
     Hash hashTable(1000);
 
-
+    int input, sentenceCount;
     ifstream in;
-    in.open("A Scandal In Bohemia.txt");
-    //in.open("test.txt");
-    
-    int sentenceCount;
-
+    in.open("AScandalInBohemia.txt");
+    //reading input and storing number of sentences
     sentenceCount = readInput(in, hashTable);
-    cout << sentenceCount << endl;
+    //gets how many uniquewords are in the hash table
+    int wCount = hashTable.getWordCount();
+    //array to sort occurrences
+    data arr[wCount];
+    hashTable.getTable(arr);
+    heapSort(arr,wCount);
 
-    //hashTable.printHash();
+    while (true)
+    {   cout << "Please choose and option and enter an appropriate number." << endl;
+        cout << "0 to exit.\n"
+             << "1 to print hash table.\n"
+             << "2 to print the smallest 150 elements.\n"
+             << "3 to print the largest 150 elements.\n"
+             << "4 to print the amount of sentences.\n";
+        cin >> input;
+        
+        switch(input){
+            case 0: system("CLS");
+                exit(1);
+            case 1: hashTable.printHash();
+                break;
+            case 2: printSmallest(arr,150);
+                break;
+            case 3: printLargest(arr, wCount);
+                break;
+            case 4: cout << "There are " << sentenceCount << " sentences." << endl;
+                break;
+        }
+        cout << endl;
+    }
 
-   int wCount = hashTable.getWordCount();
-
-   cout << wCount << endl;
-
-   data arr[wCount];
- 
-
-   hashTable.getTable(arr);
-   
-   /*for(int i = 0; i < wCount; i++){
-       cout << arr[i].word << endl;
-
-   } */
-
-   heapSort(arr,wCount);
-
-   //printSmallest(arr,150);
-    printLargest(arr,wCount);
 
     return 0;
 }
