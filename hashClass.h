@@ -13,9 +13,19 @@ private:
 
     list <data> *table;
     int hash(string word){
-        int hashed = (int)word[0] % SIZE;
-
+        int hashed = 0;
+        for(int i = 0; i < word.length(); i++){
+            hashed += (int)word[i];
+        }
+        hashed = abs(hashed);
+        //cout << hashed << " " << word << endl;
         return hashed;
+    }
+    
+    void formatString(string & word){
+        for(int i = 0; i < word.length(); i++){
+            word[i] = tolower(word[i]);
+        }
     }
 
 public:
@@ -67,13 +77,15 @@ public:
         }
     }
 
-    bool findValue(string searchedWord){
+    void findWord(string searchedWord){
+        formatString(searchedWord);
         int key = hash(searchedWord);
         list<data>::iterator it;
         for (it = table[key].begin(); it != table[key].end(); ++it){
-            if(it->word == searchedWord) return true;
+            if(it->word == searchedWord){
+                cout << it->word << " " << it->counter << endl;
+            }
         }
-        return false;
     }
 
     int getWordCount(){

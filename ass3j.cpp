@@ -27,7 +27,7 @@ using namespace std;
 int main(){
 
     //creates hashtable
-    Hash hashTable(1000);
+    Hash hashTable(10000);
 
     int input, sentenceCount;
     ifstream in;
@@ -40,6 +40,7 @@ int main(){
     data arr[wCount];
     hashTable.getTable(arr);
     heapSort(arr,wCount);
+    string searchWord;
 
     while (true)
     {   cout << "Please choose and option and enter an appropriate number." << endl;
@@ -47,9 +48,11 @@ int main(){
              << "1 to print hash table.\n"
              << "2 to print the smallest 150 elements.\n"
              << "3 to print the largest 150 elements.\n"
-             << "4 to print the amount of sentences.\n";
+             << "4 to print the amount of sentences.\n"
+             << "5 to print number of unique words.\n"
+             << "6 to search for a word. \n";
         cin >> input;
-        
+
         switch(input){
             case 0: system("CLS");
                 exit(1);
@@ -60,6 +63,12 @@ int main(){
             case 3: printLargest(arr, wCount);
                 break;
             case 4: cout << "There are " << sentenceCount << " sentences." << endl;
+                break;
+            case 5: cout << "There are " << wCount << " unique words." << endl;
+                break;
+            case 6: cout << "\nInput a word to search for." << endl;
+                    cin >> searchWord;
+                    hashTable.findWord(searchWord);
                 break;
         }
         cout << endl;
