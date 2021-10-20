@@ -56,8 +56,11 @@ void printSmallest(data arr[],int n)
 }
 void printLargest(data arr[],int n)
 {
-    cout << "Smallest 150:" << endl;
-	for (int i = n - 1; i > n - 150; --i)
-		cout << i + 1 << " " << arr[i].word << " " << arr[i].counter  << endl;
+    cout << "Largest 150:" << endl;
+	int count = 1;
+	for (int i = n - 1; i > n - 151; --i){
+		cout << count << " " << arr[i].word << " " << arr[i].counter  << endl;
+		count++;
+	}
 	cout << "\n";
 }
