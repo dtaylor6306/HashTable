@@ -15,8 +15,6 @@ private:
     int hash(string word){
         int hashed = (int)word[0] % SIZE;
 
-        //cout << hashed << endl;
-
         return hashed;
     }
 

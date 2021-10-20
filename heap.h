@@ -2,7 +2,6 @@
 #include "dataStruct.h"
 using namespace std;
 
-void printSMALLEST(data arr[],int n);
 
 // To heapify a subtree rooted with node i which is
 // an index in arr[]. n is size of heap
@@ -48,10 +47,17 @@ void heapSort(data (&arr)[], int n)
 }
 
 /* A utility function to print array of size n */
-void printSMALLEST(data arr[],int n)
+void printSmallest(data arr[],int n)
 {
     cout << "Smallest 150:" << endl;
 	for (int i = 0; i < n; ++i)
+		cout << i + 1 << " " << arr[i].word << " " << arr[i].counter  << endl;
+	cout << "\n";
+}
+void printLargest(data arr[],int n)
+{
+    cout << "Smallest 150:" << endl;
+	for (int i = n - 1; i > n - 150; --i)
 		cout << i + 1 << " " << arr[i].word << " " << arr[i].counter  << endl;
 	cout << "\n";
 }

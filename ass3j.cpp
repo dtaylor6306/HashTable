@@ -14,10 +14,11 @@ using namespace std;
 [x] Remove punct
 [x] change to lower
 [x] add to hash
+[]  Menu for printing whatever
     Sort:
 [] quicksort
-[] heapsort of top 150
-[] heapsort lower 150
+[x] heapsort of top 150
+[x] heapsort lower 150
 [x] count sentences
 
 */
@@ -56,8 +57,8 @@ int main(){
 
    heapSort(arr,wCount);
 
-   printSMALLEST(arr,150);
-
+   //printSmallest(arr,150);
+    printLargest(arr,wCount);
 
     return 0;
 }
