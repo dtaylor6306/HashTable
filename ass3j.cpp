@@ -14,9 +14,9 @@ using namespace std;
 [x] Remove punct
 [x] change to lower
 [x] add to hash
-[]  Menu for printing whatever
+[x]  Menu for printing whatever
     Sort:
-[] quicksort
+[]  Size test w/ runtime
 [x] heapsort of top 150
 [x] heapsort lower 150
 [x] count sentences
@@ -27,7 +27,7 @@ using namespace std;
 int main(){
 
     //creates hashtable
-    Hash hashTable(10000);
+    Hash hashTable(3000);
 
     int input, sentenceCount;
     ifstream in;
@@ -38,10 +38,13 @@ int main(){
     int wCount = hashTable.getWordCount();
     //array to sort occurrences
     data arr[wCount];
+    //sets up the array with hash data
     hashTable.getTable(arr);
+    //Sorts array
     heapSort(arr,wCount);
     string searchWord;
 
+    //Basic menu
     while (true)
     {   cout << "Please choose and option and enter an appropriate number." << endl;
         cout << "0 to exit.\n"

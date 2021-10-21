@@ -2,6 +2,12 @@
 #include "dataStruct.h"
 using namespace std;
 
+/* Heap taken from geeks for geeks and modified for my own use. 
+I understand how it creates the heap. 
+Starts at half way point -1 checks 2n+1, 2n+2 checks if they are larger if so makes them new largest. 
+Swaps them and then recursively does this until parent of left/right is the largest.
+Then goes back a position and does the same until index = 0 is the largest.
+The sort will then pop the largest out by putting it at the end and then reform the heap until sorted.*/
 
 // To heapify a subtree rooted with node i which is
 // an index in arr[]. n is size of heap
