@@ -16,7 +16,7 @@ private:
     list <data> *table;
     //Basic hash function.
     int hash(string word){
-        int hashed = 0;
+        int hashed = 3 * (int)word.front();
         for(int i = 0; i < word.length(); i++){
             hashed += (int)word[i];
         }

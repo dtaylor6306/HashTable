@@ -1,5 +1,4 @@
 #include <iostream>
-//#include "hashClass.h"
 #include <list>
 #include <string>
 #include "read.h"
