@@ -3,6 +3,8 @@
 #include <string>
 #include "read.h"
 #include <fstream>
+#include <chrono>
+using namespace std::chrono;
 
 using namespace std;
 
@@ -15,7 +17,7 @@ using namespace std;
 [x] add to hash
 [x]  Menu for printing whatever
     Sort:
-[]  Size test w/ runtime
+[x]  Size test w/ runtime
 [x] heapsort of top 150
 [x] heapsort lower 150
 [x] count sentences
@@ -25,8 +27,9 @@ using namespace std;
 
 int main(){
 
+
     //creates hashtable
-    Hash hashTable(3000);
+    Hash hashTable(100000);
 
     int input, sentenceCount;
     ifstream in;
@@ -37,10 +40,15 @@ int main(){
     int wCount = hashTable.getWordCount();
     //array to sort occurrences
     data arr[wCount];
+
     //sets up the array with hash data
     hashTable.getTable(arr);
     //Sorts array
+    auto start = high_resolution_clock::now();
     heapSort(arr,wCount);
+    auto stop = high_resolution_clock::now();
+    auto duration = duration_cast<milliseconds>(stop - start);
+    cout << "Time elapsed: " << duration.count() << " milliseconds." << endl;
     string searchWord;
 
     //Basic menu
@@ -52,12 +60,12 @@ int main(){
              << "3 to print the largest 150 elements.\n"
              << "4 to print the amount of sentences.\n"
              << "5 to print number of unique words.\n"
-             << "6 to search for a word. \n";
+             << "6 to search for a word. \n"
+             << "7 to see collision rate of this hash\n";
         cin >> input;
 
         switch(input){
-            case 0: system("CLS");
-                exit(1);
+            case 0: exit(1);
             case 1: hashTable.printHash();
                 break;
             case 2: printSmallest(arr,150);
@@ -71,6 +79,8 @@ int main(){
             case 6: cout << "\nInput a word to search for." << endl;
                     cin >> searchWord;
                     hashTable.findWord(searchWord);
+                break;
+            case 7: hashTable.printCR();
                 break;
         }
         cout << endl;

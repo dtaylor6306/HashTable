@@ -11,16 +11,21 @@ private:
     int uniqueWordCount = 0;
     //Used to create the size of the hash table.
     int SIZE;
+    //Used to calculate occupancy/collision rate or cr.
+    int cr = 0;
 
     //The main data structure an array of lists.
     list <data> *table;
     //Basic hash function.
     int hash(string word){
-        int hashed = 3 * (int)word.front();
+        int hashed = 0;
+        int multiplier = 1;
         for(int i = 0; i < word.length(); i++){
-            hashed += (int)word[i];
+            hashed += (int)word[i] * multiplier;
+            multiplier +=13;
         }
         hashed = abs(hashed);
+        hashed = hashed % SIZE;
         return hashed;
     }
     //formats a string to lower case, will not remove punct however which might be an oversight.
@@ -63,6 +68,7 @@ public:
                 d.word = newWord;
                 table[pos].push_back(d);
                 uniqueWordCount++;
+                cr++;
             }
         }
     }
@@ -118,4 +124,10 @@ public:
         }
         
     }
+
+   void printCR(){
+       double rate = (double)cr/(double)uniqueWordCount;
+       rate = rate * 100;
+       cout << (int)rate << "%" << endl;
+   }
 };

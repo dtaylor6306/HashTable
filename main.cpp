@@ -7,13 +7,13 @@
 using namespace std;
 
 
-int main(){
+int main(int argc, char** argv){
     
-    Hash hashTable(3000);
+    Hash hashTable(100000);
 
     int input, sentenceCount;
     ifstream in;
-    in.open("AScandalInBohemia.txt");
+    in.open(argv[1]);
     //reading input and storing number of sentences
     sentenceCount = readInput(in, hashTable);
     //gets how many uniquewords are in the hash table
