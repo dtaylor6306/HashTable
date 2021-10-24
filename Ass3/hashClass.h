@@ -107,7 +107,7 @@ public:
         return uniqueWordCount;
     }
     //Outputs hash tabe to an array.
-    void getTable(data (&arr)[]){
+    void getTable(data (&arr)[8730]){
         
         list<data>::iterator it;
         int j = 0;
