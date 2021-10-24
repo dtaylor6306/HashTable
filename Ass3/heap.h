@@ -8,10 +8,13 @@ Starts at half way point -1 checks 2n+1, 2n+2 checks if they are larger if so ma
 Swaps them and then recursively does this until parent of left/right is the largest.
 Then goes back a position and does the same until index = 0 is the largest.
 The sort will then pop the largest out by putting it at the end and then reform the heap until sorted.*/
-
+void heapify(data arr[], int n, int i);
+void heapSort(data arr[], int n);
+void printSmallest(data arr[],int n);
+void printLargest(data arr[],int n);
 // To heapify a subtree rooted with node i which is
 // an index in arr[]. n is size of heap
-void heapify(data (&arr)[], int n, int i)
+void heapify(data arr[], int n, int i)
 {
 	int largest = i; // Initialize largest as root
 	int l = 2 * i + 1; // left = 2*i + 1
@@ -35,7 +38,7 @@ void heapify(data (&arr)[], int n, int i)
 }
 
 // main function to do heap sort
-void heapSort(data (&arr)[], int n)
+void heapSort(data arr[], int n)
 {
 	// Build heap (rearrange array)
 	for (int i = n / 2 - 1; i >= 0; i--){
