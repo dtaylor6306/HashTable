@@ -8,6 +8,14 @@ using namespace std::chrono;
 
 using namespace std;
 
+/* 
+I declare that all material in this assessment task is my work except where there is
+clear acknowledge- mentor reference to the work of others. I further declare that I have
+complied and agreed to the CMU Academic Integrity Policy at the University website.
+http://www.coloradomesa.edu/student-services/document
+Author’s Name: Dylan Taylor UID(700#): 700373571 Date: 10/24/21
+*/
+
 /* TODO 
 [x] Setup hash table
     Input:
