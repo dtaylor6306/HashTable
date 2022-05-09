@@ -67,7 +67,7 @@ void printLargest(data arr[],int n)
 {
     cout << "Largest 150:" << endl;
 	int count = 1;
-	for (int i = n - 1; i  > n - 151; --i){
+	for (int i = n - 1; i  > n - 160; --i){
 		cout << count << " " << arr[i].word << " " << arr[i].counter  <<  endl;
 		count++;
 	}

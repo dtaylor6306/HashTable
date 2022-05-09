@@ -37,7 +37,7 @@ int main(){
 
 
     //creates hashtable
-    Hash hashTable(100000);
+    Hash hashTable(800);
 
     int input, sentenceCount;
     ifstream in;
